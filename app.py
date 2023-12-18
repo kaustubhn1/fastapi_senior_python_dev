@@ -61,4 +61,5 @@ async def read_orders(customer_id: int):
     """
     
     orders_result = get_shopify_orders(customer_id, http_request)
-    return {"orders": orders_result}
+    total_orders = len(orders_result["orders"])
+    return {"orders": orders_result, "total_orders": total_orders}
